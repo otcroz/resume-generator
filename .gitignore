@@ -1,0 +1,9 @@
+data/private/
+assets/private/
+output/
+preview/
+*.pdf
+*.ttf
+*.otf
+__pycache__/
+.env
