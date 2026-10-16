@@ -303,11 +303,12 @@ def build(data,profile,out,font_used):
     return {'path':str(out),'font':font_used,'pages':page,'last_page_bottom':round(y,1)}
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--profile',default='all');ap.add_argument('--data',default=str(ROOT/'data/master.json'));ap.add_argument('--out',default=str(ROOT/'output'));ap.add_argument('--save-version',action='store_true');args=ap.parse_args()
-    data=load_json(args.data);font=fonts();outdir=Path(args.out);outdir.mkdir(parents=True,exist_ok=True)
+    ap=argparse.ArgumentParser();ap.add_argument('--profile',default='all');ap.add_argument('--data',default=None);ap.add_argument('--out',default=str(ROOT/'output'));ap.add_argument('--save-version',action='store_true');args=ap.parse_args()
+    font=fonts();outdir=Path(args.out);outdir.mkdir(parents=True,exist_ok=True)
     if args.profile=='all': profiles=['developer','validation']
     else:profiles=[args.profile]
     for name in profiles:
+        data=load_json(args.data or ROOT/'data'/f'{name}.json')
         p=load_json(ROOT/'profiles'/f'{name}.json')
         if 'extends' in p:
             base=load_json(ROOT/'profiles'/f"{p['extends']}.json")

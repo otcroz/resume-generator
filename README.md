@@ -17,7 +17,7 @@ Pretendard 폰트는 별도 설치가 필요하며 저장소에 포함하지 않
 
 ## 수정 위치
 
-- `data/master.json`: 공개용 공통 샘플 데이터
+- `data/developer.json`, `data/validation.json`: 직무별 독립 공개 샘플 데이터
 - `profiles/developer.json`, `profiles/validation.json`: 직무별 설정
 - `src/generate.py`: 고정된 레이아웃
 - `src/validate.py`: PDF 검사
@@ -25,3 +25,6 @@ Pretendard 폰트는 별도 설치가 필요하며 저장소에 포함하지 않
 ## 개인정보 보호
 
 실제 이름, 연락처, 사진, 고객사 정보, 검증 내용 및 원본 PDF를 공개 저장소에 올리지 마세요. 개인 데이터는 공개 저장소 밖의 비공개 작업 복사본에 보관하세요. `.gitignore`만으로 과거 커밋에서 개인정보가 제거되지는 않습니다.
+
+
+`--profile developer`는 `data/developer.json`, `--profile validation`은 `data/validation.json`을 읽습니다. `--profile all`은 두 파일을 각각 사용합니다. 실제 개인 정보는 공개 저장소에 올리지 마세요.
