@@ -23,6 +23,26 @@ INK=HexColor('#171717'); MUTED=HexColor('#666666'); RULE=HexColor('#303030')
 def load_json(p):
     with open(p,encoding='utf-8') as f:return json.load(f)
 
+def merge_resume(base, override):
+    """Merge shared data with profile-specific fields, merging projects by id."""
+    result = dict(base)
+    for key, value in override.items():
+        if key == 'projects':
+            projects = {item['id']: dict(item) for item in result.get('projects', [])}
+            order = [item['id'] for item in result.get('projects', [])]
+            for item in value:
+                pid = item['id']
+                if pid not in projects:
+                    order.append(pid)
+                    projects[pid] = {}
+                projects[pid].update(item)
+            result[key] = [projects[pid] for pid in order]
+        elif isinstance(value, dict) and isinstance(result.get(key), dict):
+            result[key] = {**result[key], **value}
+        else:
+            result[key] = value
+    return result
+
 def fonts():
     """Use locally installed Pretendard if provided; never package or redistribute font files."""
     search=[Path(os.environ.get('PRETENDARD_DIR','/mnt/data')),Path('/mnt/data'),Path.home()/'.local/share/fonts',Path('/usr/share/fonts/truetype')]
@@ -308,7 +328,7 @@ def main():
     if args.profile=='all': profiles=['developer','validation']
     else:profiles=[args.profile]
     for name in profiles:
-        data=load_json(args.data or ROOT/'data'/f'{name}.json')
+        data=load_json(args.data) if args.data else merge_resume(load_json(ROOT/'data/common.json'), load_json(ROOT/'data'/f'{name}.json'))
         p=load_json(ROOT/'profiles'/f'{name}.json')
         if 'extends' in p:
             base=load_json(ROOT/'profiles'/f"{p['extends']}.json")

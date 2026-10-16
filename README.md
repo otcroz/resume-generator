@@ -28,3 +28,6 @@ Pretendard 폰트는 별도 설치가 필요하며 저장소에 포함하지 않
 
 
 `--profile developer`는 `data/developer.json`, `--profile validation`은 `data/validation.json`을 읽습니다. `--profile all`은 두 파일을 각각 사용합니다. 실제 개인 정보는 공개 저장소에 올리지 마세요.
+
+
+공통 내용은 `data/common.json`에, 직무별 차이만 `data/developer.json` 및 `data/validation.json`에 저장합니다. 프로젝트는 `id` 기준으로 병합하며, 공통 내용은 개발직 기준입니다. 공개 저장소의 JSON은 가상 샘플 데이터입니다.
