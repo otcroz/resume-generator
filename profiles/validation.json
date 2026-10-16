@@ -1,0 +1,22 @@
+{
+  "name": "validation",
+  "role_title": "차량 SW 검증 | ECU · 사이버보안",
+  "summary": [
+    "기존 테스트 절차에 따른 임베디드 SW 검증 및 결과 비교",
+    "통신 로그 분석을 통한 오류 재현과 변경 전후 확인",
+    "Python 자동화 및 사내 테스트 도구 개선 경험"
+  ],
+  "primary_project_ids": [
+    "vcms",
+    "report_automation",
+    "cybersecurity",
+    "security_tool"
+  ],
+  "secondary_project_ids": [],
+  "skills_order": [
+    "automotive",
+    "languages",
+    "frameworks",
+    "tools"
+  ]
+}
