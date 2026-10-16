@@ -1,0 +1,23 @@
+{
+  "name": "developer",
+  "role_title": "소프트웨어 개발 | 차량 SW · 자동화 서비스",
+  "summary": [
+    "React·Python을 활용한 테스트 관리 UI와 경량 API 구현 경험",
+    "반복 업무 자동화 및 로그 기반 문제 해결 역량",
+    "웹 개발과 임베디드 소프트웨어 검증 프로젝트 경험"
+  ],
+  "primary_project_ids": [
+    "security_tool",
+    "report_automation",
+    "vcms_dev",
+    "nlp",
+    "child_sns"
+  ],
+  "secondary_project_ids": [],
+  "skills_order": [
+    "languages",
+    "frameworks",
+    "automotive",
+    "tools"
+  ]
+}
